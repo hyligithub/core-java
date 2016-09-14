@@ -83,4 +83,14 @@ public class OutClass {
         logger.log("" + this.k);
         logger.log("" + this.m);
     }
+
+    public void anonymousClassTest(){
+        Car car = new Car(){
+
+            public void travel() {
+                System.out.println("this is a BMW");
+            }
+        };
+        car.travel();
+    }
 }
