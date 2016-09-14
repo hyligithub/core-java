@@ -1,4 +1,4 @@
-package com.core.innerclass;
+package com.core.ooc.innerclass;
 
 /**
  * Created by lihuiyan on 2016/9/14.

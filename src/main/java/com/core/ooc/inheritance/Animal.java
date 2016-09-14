@@ -1,4 +1,4 @@
-package com.core.inheritance;
+package com.core.ooc.inheritance;
 
 /**
  * Created by lihuiyan on 2016/9/12.
