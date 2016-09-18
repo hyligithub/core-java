@@ -13,19 +13,19 @@ public class AnnotationExample {
     }
 
     @Deprecated
-    @MehtodInfo(name = "oldMehtod", date = "2016/09/18", version = 1)
+    @MethodInfo(name = "oldMehtod", date = "2016/09/18", version = 1)
     public static void oldMethod() {
         System.out.println("this is a old method,don't use it");
     }
 
     @Override
-    @MehtodInfo(name = "toString", date = "2016/09/18", author = "lihy", version = 2)
+    @MethodInfo(name = "toString", date = "2016/09/18", author = "lihy", version = 2)
     public String toString() {
         return "Override toString";
     }
 
     @SuppressWarnings({"unchecked", "deprecation"})
-    @MehtodInfo(name = "genericTest", author = "lihy", date = "2016/09/18", version = 10)
+    @MethodInfo(name = "genericTest", author = "lihy", date = "2016/09/18", version = 10)
     public static void genericTest() {
         List l = new ArrayList();
         l.add("abc");

@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Inherited
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MehtodInfo {
+public @interface MethodInfo {
     String name();
 
     String author() default "lihuiyan";
