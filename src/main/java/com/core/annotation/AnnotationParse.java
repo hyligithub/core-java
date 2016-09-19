@@ -22,7 +22,6 @@ public class AnnotationParse {
                         System.out.println("method version =10 ," + method);
                     }
                 }
-
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
