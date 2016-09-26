@@ -21,7 +21,7 @@ public class ListIteratorExample {
         iterator = list.iterator();
         while (iterator.hasNext()) {
             Integer integer = (Integer) iterator.next();
-            if (integer % 2 == 0) list.remove(integer);
+            if (integer % 2 == 0) list.remove(integer); //fail-fast 机制
         }
         System.out.print(list);
     }

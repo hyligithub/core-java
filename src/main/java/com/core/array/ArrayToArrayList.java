@@ -20,9 +20,9 @@ public class ArrayToArrayList {
         for (String s : list) {
             System.out.println(s);
         }
-        list = new ArrayList<String>();
 //        list.add("A");//UnsupportedOperationException
-        Collections.addAll(list,str);
+                list = new ArrayList<String>();
+        Collections.addAll(list, str);
         for (String s : list) {
             System.out.println(s);
         }
