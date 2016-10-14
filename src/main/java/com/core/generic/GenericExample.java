@@ -10,8 +10,10 @@ import java.util.List;
 public class GenericExample {
 
     public static void main(String[] args) {
-//        genericOrNotGeneric();
+        genericOrNotGeneric();
         genericAtCompileTime();
+        genericClassAndCommonClass();
+        wildCard();
     }
 
     /**
@@ -60,6 +62,97 @@ public class GenericExample {
             System.out.println(list2);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 通配符
+     */
+    private static void wildCard() {
+        List<Number> list = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
+        //list = list1;// error 虽然Integer是Number的子类，但是List<Integer>不是List<Number>的子类型
+        List<?> list3 = new ArrayList<>();//这种方式参数类型只要是Object就可以
+        list3 = list1;
+        list3 = list;
+
+        Bar<Integer> bar = new Bar<>(12345);
+//        showData(bar);//showData(Bar<?> bar)才OK
+        extendsO(bar);
+
+        Bar<Double> bar1 = new Bar<>(123.123);
+        extendsO(bar1);
+    }
+
+    private static void showData(Bar<Number> bar) {
+        bar.showType();
+    }
+
+    /**
+     * 上界
+     *
+     * @param bar
+     */
+    private static void extendsO(Bar<? extends Number> bar) {
+        bar.showType();
+    }
+
+    /**
+     * 泛型类和非泛型类的使用区别
+     */
+    private static void genericClassAndCommonClass() {
+        Foo foo = new Foo(new String("this is a common class"));
+        System.out.println(foo.getObject());
+        foo.showType();
+        Foo foo1 = new Foo(new Integer(199));
+        foo1.showType();
+        System.out.println("-----common class end----------");
+
+        System.out.println("-----generic class start----------");
+        Bar<String> bar = new Bar<>("this is a generic class");
+        bar.showType();
+
+        Bar<Integer> bar1 = new Bar<>(1);
+        bar1.showType();
+    }
+
+    /**
+     * 定义非泛型类
+     */
+    static class Foo {
+        private Object object;//定义泛型成员变量
+
+        public Foo(Object o) {
+            this.object = o;
+        }
+
+        public Object getObject() {
+            return object;
+        }
+
+        public void showType() {
+            System.out.println("对象的实际类型是：" + object.getClass().getName());
+        }
+    }
+
+    /**
+     * 定义泛型类
+     *
+     * @param <T>
+     */
+    static class Bar<T> {
+        private T value;
+
+        public Bar(T t) {
+            value = t;
+        }
+
+        public T getValue() {
+            return value;
+        }
+
+        public void showType() {
+            System.out.println("T的实际类型是:" + value.getClass().getName());
         }
     }
 }
