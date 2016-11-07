@@ -10,8 +10,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Created by lihuiyan on 2016/11/5.
  * copyonwriteArrayList 是线程安全的动态数组，是通过独占锁和volatile实现互斥以及内存可见
  * 在对cosarraylist进行迭代时不会出现fail-fast机制，进行迭代的时候是通过复制一个新的数据来实现的
- * coslist的遍历性能很好，但是更新数据内容（add,remove）性能很差，因为需要复制一个数据，操作完毕之后
- * 需要再将数组赋给原volatile数据。
+ * COWlist的遍历性能很好，但是更新数据内容（add,remove）性能很差，因为需要复制一个数据，操作完毕之后
+ * 需要再将数组赋给原volatile数组。
  */
 public class CopyOnWriteArrayListExample {
     private static List<String> list = new CopyOnWriteArrayList<>();
