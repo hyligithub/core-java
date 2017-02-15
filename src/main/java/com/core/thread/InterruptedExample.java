@@ -4,7 +4,7 @@ package com.core.thread;
  * Created by lihuiyan on 2016/10/24.
  * interrupt 意为中断线程，线程可以自己中断自己，也可以其他线程调用线程的interrupt()方法来中断线程
  * 处于运行状态的线程,isInterrupted() 方法返回true,该方法判断线程的中断标记是否为true
- * 处于阻塞状态的线程,inInterrupted()方法返回true,但是由于线程处于阻塞状态，虚拟机会立刻清楚中断标记，同时产生一个InterruptedException异常
+ * 处于阻塞状态的线程,inInterrupted()方法返回true,但是由于线程处于阻塞状态，虚拟机会立刻清除中断标记，同时产生一个InterruptedException异常
  *
  * 综上:处理线程(运行状态，阻塞状态)终止的通用写法如下：
  *    @Override
