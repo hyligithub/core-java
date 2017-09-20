@@ -8,6 +8,9 @@ import com.core.enumexample.ThreadStateEnum;
 public class MyThread extends Thread {
 
     public static void main(String[] args) {
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getThreadGroup().getName());
+
         Thread thread = new MyThread("myThread");
         thread.start();
     }
@@ -19,6 +22,7 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getThreadGroup().getName());
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
