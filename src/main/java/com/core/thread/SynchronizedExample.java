@@ -55,8 +55,8 @@ public class SynchronizedExample {
                 st.syncMethod1();
             }
         }, "t8");
-        t7.start();
-        t8.start();
+//        t7.start();
+//        t8.start();
 
 
     }
