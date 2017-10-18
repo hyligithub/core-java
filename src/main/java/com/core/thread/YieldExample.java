@@ -23,14 +23,16 @@ public class YieldExample {
         public void run() {
             //获取object对象锁
             synchronized (object) {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 5; i++) {
                     System.out.println(Thread.currentThread().getName() + "--" + i);
                     /**
                      * t1,t2在运行时会获取同一个对象锁，
-                     * 当取模4为0时，会执行线程让步，但是线程没有释放锁，所以另外一个线程只能等待，直到第一个线程执行完毕才进行
+                     * 当取模2为0时，会执行线程让步，但是线程没有释放锁，所以另外一个线程只能等待，直到第一个线程执行完毕才进行
                      */
-                    if (i % 4 == 0)
+
+                    if (i % 2 == 0) {
                         yield();
+                    }
                 }
             }
         }
