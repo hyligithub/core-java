@@ -15,7 +15,6 @@ public class WaitNotifyDemo1 {
         Thread consumer = new Consumer("consumer", queue);
         producer.start();
         consumer.start();
-
     }
 }
 

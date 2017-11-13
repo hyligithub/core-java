@@ -16,6 +16,7 @@ public class Consumer extends Thread {
 
     @Override
     public void run() {
+        //消费者持续不断的来就餐
         while (true) {
             synchronized (sharedQueue) {
                 while (sharedQueue.size() == 0) {
@@ -28,7 +29,8 @@ public class Consumer extends Thread {
                 }
                 Integer o = (Integer) sharedQueue.poll();
                 sharedQueue.notify();
-                if (o == 10) {
+                if (o == 10) {//只接纳10桌客人
+                    System.out.println("stop service");
                     break;
                 }
             }

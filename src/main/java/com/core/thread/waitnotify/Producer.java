@@ -8,7 +8,7 @@ import java.util.Queue;
  */
 public class Producer extends Thread {
 
-    private final Queue sharedQueue;
+    private final Queue sharedQueue;//餐厅容量
 
     public Producer(String name, Queue queue) {
         super(name);
@@ -17,6 +17,7 @@ public class Producer extends Thread {
 
     @Override
     public void run() {
+        //假设餐厅最多容纳10桌客人
         for (int i = 0; i <= 10; i++) {
             synchronized (sharedQueue) {
                 while (sharedQueue.size() == 10) {

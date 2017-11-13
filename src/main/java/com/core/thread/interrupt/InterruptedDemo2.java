@@ -8,11 +8,9 @@ public class InterruptedDemo2 {
     public static void test() throws InterruptedException {
         Thread t1 = new Thread(new MyRunnable(), "t1");
         t1.start();
-        Thread.sleep(30);
+        Thread.sleep(300);
         t1.interrupt();
-        Thread.sleep(30);
-        System.out.println(t1.isInterrupted() + "---");
-
+        System.out.println(t1.getState()+"--"+t1.isAlive()+"----"+t1.isInterrupted() + "---");
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -26,13 +24,12 @@ class MyRunnable implements Runnable {
         int i = 0;
         try {
             while (true) {
-
                 Thread.sleep(100);
                 System.out.println(++i);
             }
         } catch (InterruptedException e) {
-            System.out.println("aaa");
             Thread.currentThread().interrupt();
+            System.out.println(Thread.currentThread().isInterrupted());
             System.out.println(Thread.currentThread().getName());
         }
     }
