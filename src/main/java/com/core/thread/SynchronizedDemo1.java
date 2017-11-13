@@ -16,9 +16,13 @@ public class SynchronizedDemo1 {
         }
     }
 
+    public synchronized static void test3(){
+        System.out.println("this is a Class Synchronized");
+    }
     public static void main(String[] args) {
         SynchronizedDemo1 s1 = new SynchronizedDemo1();
         s1.test1();
         s1.test2();
+        test3();
     }
 }
